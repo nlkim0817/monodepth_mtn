@@ -368,8 +368,9 @@ class Model:
         min_disp  = 1;
 
         def disp2depth( disp, max_disp ):
+            disp = disp * 2;
             disp[ disp < min_disp ] = min_disp;
-            depth = (3233.93339530 * 0.245) / (2*disp);
+            depth = (3233.93339530 * 0.245) / (disp);
             depth[depth < min_depth] = min_depth;
             depth[depth > max_depth] = max_depth;
             depth = depth * (255./max_depth);
